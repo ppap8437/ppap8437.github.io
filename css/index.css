@@ -186,7 +186,7 @@ template {
 #aside-content .card-categories ul.card-category-list > .card-category-list-item a span,
 #pagination .prev_info,
 #pagination .next_info,
-#sidebar #sidebar-menus .site-data .data-item .data-item-link > a > div,
+#sidebar #sidebar-menus .site-data .data-item > a > div,
 #sidebar #sidebar-menus .menus_items .site-page {
   overflow: hidden;
   -o-text-overflow: ellipsis;
@@ -1504,14 +1504,6 @@ a:hover {
   -o-transform: scaleX(1);
   -ms-transform: scaleX(1);
   transform: scaleX(1);
-}
-img {
-  max-width: 100%;
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  transition: all 0.2s;
 }
 img[src=''],
 img:not([src]) {
@@ -3605,14 +3597,14 @@ blockquote footer cite:before {
 #nav .menus_items .menus_item:hover .menus_item_child {
   display: block;
 }
-#nav .menus_items .menus_item:hover i.expand {
-  -webkit-transform: rotate(180deg) !important;
-  -moz-transform: rotate(180deg) !important;
-  -o-transform: rotate(180deg) !important;
-  -ms-transform: rotate(180deg) !important;
-  transform: rotate(180deg) !important;
+#nav .menus_items .menus_item:hover > a > i:last-child {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
-#nav .menus_items .menus_item i.expand {
+#nav .menus_items .menus_item > a > i:last-child {
   padding: 4px;
   -webkit-transition: -webkit-transform 0.3s;
   -moz-transition: -moz-transform 0.3s;
@@ -3815,6 +3807,7 @@ blockquote footer cite:before {
 #article-container img {
   display: block;
   margin: 0 auto 0.8rem;
+  max-width: 100%;
 }
 #article-container p {
   margin: 0 0 0.8rem;
@@ -4209,11 +4202,11 @@ blockquote footer cite:before {
 #sidebar #sidebar-menus .site-data .data-item {
   display: table-cell;
 }
-#sidebar #sidebar-menus .site-data .data-item .data-item-link .length-num {
+#sidebar #sidebar-menus .site-data .data-item .length-num {
   color: var(--text-highlight-color);
   font-size: 1.28em;
 }
-#sidebar #sidebar-menus .site-data .data-item .data-item-link .headline {
+#sidebar #sidebar-menus .site-data .data-item .headline {
   color: var(--font-color);
 }
 #sidebar #sidebar-menus hr {
@@ -4236,7 +4229,7 @@ blockquote footer cite:before {
   width: 15%;
   text-align: left;
 }
-#sidebar #sidebar-menus .menus_items .expand {
+#sidebar #sidebar-menus .menus_items .site-page.group > i:last-child {
   position: absolute;
   top: 0.78em;
   right: 0.9rem;
@@ -4246,12 +4239,15 @@ blockquote footer cite:before {
   -ms-transition: -ms-transform 0.3s;
   transition: transform 0.3s;
 }
-#sidebar #sidebar-menus .menus_items .expand.hide {
-  -webkit-transform: rotate(90deg) !important;
-  -moz-transform: rotate(90deg) !important;
-  -o-transform: rotate(90deg) !important;
-  -ms-transform: rotate(90deg) !important;
-  transform: rotate(90deg) !important;
+#sidebar #sidebar-menus .menus_items .site-page.group.hide > i:last-child {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#sidebar #sidebar-menus .menus_items .site-page.group.hide + .menus_item_child {
+  display: none;
 }
 #sidebar #sidebar-menus .menus_items .menus_item_child {
   margin: 0;
@@ -4523,7 +4519,7 @@ figure.gallery-group:hover p {
 figure.gallery-group img {
   position: relative;
   margin: 0 !important;
-  max-width: none;
+  max-width: none !important;
   width: calc(100% + 20px);
   height: 250px;
   -webkit-backface-visibility: hidden;
